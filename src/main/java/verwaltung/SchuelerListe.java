@@ -11,9 +11,9 @@ public class SchuelerListe<T extends Schueler> {
 
     ArrayList<Pair<T, Boolean>> list = new ArrayList<>();
 
-    public Pair<T, Boolean> getRandom(){
+    public T getRandom(){
         int index = randomWithRange(0, list.size() - 1);
-        return list.get(index);
+        if(list.get(index).value) { return list.get(index).key; } else { return getRandom(); }
     }
 
     private int randomWithRange(int min, int max) {
